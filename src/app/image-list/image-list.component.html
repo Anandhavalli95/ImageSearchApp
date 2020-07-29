@@ -1,0 +1,14 @@
+<a routerLink="/favorites">My Favorites</a>
+<div>
+    <input type="text" class="search" placeholder="Search for Images" (input)="improvedSearchFn($event.target.value)"/>
+</div>
+
+<p *ngIf="searching">Fetching data...</p>
+
+<div *ngFor="let image of images" class="image-container">
+    <img src="{{ image.webformatURL}}" alt="image" class="image" style="width:100%"/>
+    <div class="middle">
+        <div class="text" (click)="addToFavorites(image.webformatURL)">Add to Favorites</div>
+        <div class="text">Likes: {{ image.likes }}</div>
+    </div>
+</div>
